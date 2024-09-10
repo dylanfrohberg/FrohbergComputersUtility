@@ -30,6 +30,51 @@
         {
             systemInfo = new TabControl();
             tpSystemInfo = new TabPage();
+            networkGroupBox = new GroupBox();
+            DHCP = new Label();
+            lblDHCP = new Label();
+            DNS = new Label();
+            label2 = new Label();
+            DEFAULTGATEWAY = new Label();
+            lblDefaultGateway = new Label();
+            IPADDRESS = new Label();
+            lblIPAddress = new Label();
+            SUBNETMASK = new Label();
+            lblSubnetMask = new Label();
+            MACADDRESS = new Label();
+            lblMACAddress = new Label();
+            NETWORKADAPTER = new Label();
+            lblNetworkAdapter = new Label();
+            MotherboardGroupBox = new GroupBox();
+            SECUREBOOT = new Label();
+            lblSecureBoot = new Label();
+            BIOS = new Label();
+            lblBIOS = new Label();
+            MOTHERBOARD = new Label();
+            lblMotherboard = new Label();
+            VERSION = new Label();
+            lblVersion = new Label();
+            MOTHERBOARDMANUFACTURER = new Label();
+            lblMotherboardManufacturer = new Label();
+            SYSTEMMANUFACTURER = new Label();
+            lblSystemManufacturer = new Label();
+            groupBox1 = new GroupBox();
+            MEMORYVOLTAGE = new Label();
+            lblMemoryVoltage = new Label();
+            XMPENABLED = new Label();
+            lblXMPEnabled = new Label();
+            MEMORYGENERATION = new Label();
+            lblMemoryGeneration = new Label();
+            MEMORYUSAGE = new Label();
+            lblMemoryUsage = new Label();
+            DIMMLOCATION = new Label();
+            lblMemoryTemperature = new Label();
+            MEMORYFREQUENCY = new Label();
+            lblMemoryFrequency = new Label();
+            MEMORYCAPACITY = new Label();
+            lblCapacity = new Label();
+            MEMORYMODEL = new Label();
+            lblMemoryModel = new Label();
             gbGPUInfo = new GroupBox();
             GPUVOLTAGE = new Label();
             lblGpuVoltage = new Label();
@@ -65,8 +110,15 @@
             CPUModel = new Label();
             lblCPUModel = new Label();
             tpOptimize = new TabPage();
+            SENT = new Label();
+            label3 = new Label();
+            RECEIVED = new Label();
+            label5 = new Label();
             systemInfo.SuspendLayout();
             tpSystemInfo.SuspendLayout();
+            networkGroupBox.SuspendLayout();
+            MotherboardGroupBox.SuspendLayout();
+            groupBox1.SuspendLayout();
             gbGPUInfo.SuspendLayout();
             groupCPU.SuspendLayout();
             SuspendLayout();
@@ -86,6 +138,9 @@
             // 
             // tpSystemInfo
             // 
+            tpSystemInfo.Controls.Add(networkGroupBox);
+            tpSystemInfo.Controls.Add(MotherboardGroupBox);
+            tpSystemInfo.Controls.Add(groupBox1);
             tpSystemInfo.Controls.Add(gbGPUInfo);
             tpSystemInfo.Controls.Add(groupCPU);
             tpSystemInfo.Location = new Point(4, 24);
@@ -97,9 +152,451 @@
             tpSystemInfo.Text = " System Information";
             tpSystemInfo.UseVisualStyleBackColor = true;
             // 
+            // networkGroupBox
+            // 
+            networkGroupBox.BackColor = Color.LightCoral;
+            networkGroupBox.BackgroundImageLayout = ImageLayout.None;
+            networkGroupBox.Controls.Add(RECEIVED);
+            networkGroupBox.Controls.Add(label5);
+            networkGroupBox.Controls.Add(SENT);
+            networkGroupBox.Controls.Add(label3);
+            networkGroupBox.Controls.Add(DHCP);
+            networkGroupBox.Controls.Add(lblDHCP);
+            networkGroupBox.Controls.Add(DNS);
+            networkGroupBox.Controls.Add(label2);
+            networkGroupBox.Controls.Add(DEFAULTGATEWAY);
+            networkGroupBox.Controls.Add(lblDefaultGateway);
+            networkGroupBox.Controls.Add(IPADDRESS);
+            networkGroupBox.Controls.Add(lblIPAddress);
+            networkGroupBox.Controls.Add(SUBNETMASK);
+            networkGroupBox.Controls.Add(lblSubnetMask);
+            networkGroupBox.Controls.Add(MACADDRESS);
+            networkGroupBox.Controls.Add(lblMACAddress);
+            networkGroupBox.Controls.Add(NETWORKADAPTER);
+            networkGroupBox.Controls.Add(lblNetworkAdapter);
+            networkGroupBox.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            networkGroupBox.Location = new Point(586, 305);
+            networkGroupBox.Name = "networkGroupBox";
+            networkGroupBox.RightToLeft = RightToLeft.No;
+            networkGroupBox.Size = new Size(363, 308);
+            networkGroupBox.TabIndex = 18;
+            networkGroupBox.TabStop = false;
+            networkGroupBox.Text = "                         Network Information";
+            // 
+            // DHCP
+            // 
+            DHCP.AutoSize = true;
+            DHCP.Location = new Point(63, 207);
+            DHCP.Name = "DHCP";
+            DHCP.Size = new Size(0, 17);
+            DHCP.TabIndex = 17;
+            // 
+            // lblDHCP
+            // 
+            lblDHCP.AutoSize = true;
+            lblDHCP.Location = new Point(6, 207);
+            lblDHCP.Name = "lblDHCP";
+            lblDHCP.Size = new Size(49, 17);
+            lblDHCP.TabIndex = 16;
+            lblDHCP.Text = "DHCP:";
+            // 
+            // DNS
+            // 
+            DNS.AutoSize = true;
+            DNS.Location = new Point(103, 180);
+            DNS.Name = "DNS";
+            DNS.Size = new Size(0, 17);
+            DNS.TabIndex = 13;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(6, 180);
+            label2.Name = "label2";
+            label2.Size = new Size(101, 17);
+            label2.TabIndex = 12;
+            label2.Text = "DNS Server(s):";
+            // 
+            // DEFAULTGATEWAY
+            // 
+            DEFAULTGATEWAY.AutoSize = true;
+            DEFAULTGATEWAY.Location = new Point(126, 152);
+            DEFAULTGATEWAY.Name = "DEFAULTGATEWAY";
+            DEFAULTGATEWAY.Size = new Size(0, 17);
+            DEFAULTGATEWAY.TabIndex = 9;
+            // 
+            // lblDefaultGateway
+            // 
+            lblDefaultGateway.AutoSize = true;
+            lblDefaultGateway.Location = new Point(6, 152);
+            lblDefaultGateway.Name = "lblDefaultGateway";
+            lblDefaultGateway.Size = new Size(118, 17);
+            lblDefaultGateway.TabIndex = 8;
+            lblDefaultGateway.Text = "Default Gateway:";
+            // 
+            // IPADDRESS
+            // 
+            IPADDRESS.AutoSize = true;
+            IPADDRESS.Location = new Point(87, 90);
+            IPADDRESS.Name = "IPADDRESS";
+            IPADDRESS.Size = new Size(0, 17);
+            IPADDRESS.TabIndex = 7;
+            // 
+            // lblIPAddress
+            // 
+            lblIPAddress.AutoSize = true;
+            lblIPAddress.Location = new Point(6, 90);
+            lblIPAddress.Name = "lblIPAddress";
+            lblIPAddress.Size = new Size(81, 17);
+            lblIPAddress.TabIndex = 6;
+            lblIPAddress.Text = "IP Address:";
+            // 
+            // SUBNETMASK
+            // 
+            SUBNETMASK.AutoSize = true;
+            SUBNETMASK.Location = new Point(103, 121);
+            SUBNETMASK.Name = "SUBNETMASK";
+            SUBNETMASK.Size = new Size(0, 17);
+            SUBNETMASK.TabIndex = 5;
+            // 
+            // lblSubnetMask
+            // 
+            lblSubnetMask.AutoSize = true;
+            lblSubnetMask.Location = new Point(6, 121);
+            lblSubnetMask.Name = "lblSubnetMask";
+            lblSubnetMask.Size = new Size(95, 17);
+            lblSubnetMask.TabIndex = 4;
+            lblSubnetMask.Text = "Subnet Mask:";
+            // 
+            // MACADDRESS
+            // 
+            MACADDRESS.AutoSize = true;
+            MACADDRESS.Location = new Point(103, 60);
+            MACADDRESS.Name = "MACADDRESS";
+            MACADDRESS.Size = new Size(0, 17);
+            MACADDRESS.TabIndex = 3;
+            // 
+            // lblMACAddress
+            // 
+            lblMACAddress.AutoSize = true;
+            lblMACAddress.Location = new Point(6, 60);
+            lblMACAddress.Name = "lblMACAddress";
+            lblMACAddress.Size = new Size(97, 17);
+            lblMACAddress.TabIndex = 2;
+            lblMACAddress.Text = "MAC Address:";
+            // 
+            // NETWORKADAPTER
+            // 
+            NETWORKADAPTER.AutoSize = true;
+            NETWORKADAPTER.Location = new Point(126, 29);
+            NETWORKADAPTER.Name = "NETWORKADAPTER";
+            NETWORKADAPTER.Size = new Size(0, 17);
+            NETWORKADAPTER.TabIndex = 1;
+            // 
+            // lblNetworkAdapter
+            // 
+            lblNetworkAdapter.AutoSize = true;
+            lblNetworkAdapter.Location = new Point(6, 29);
+            lblNetworkAdapter.Name = "lblNetworkAdapter";
+            lblNetworkAdapter.Size = new Size(120, 17);
+            lblNetworkAdapter.TabIndex = 0;
+            lblNetworkAdapter.Text = "Network Adapter:";
+            // 
+            // MotherboardGroupBox
+            // 
+            MotherboardGroupBox.BackColor = Color.LightCoral;
+            MotherboardGroupBox.BackgroundImageLayout = ImageLayout.None;
+            MotherboardGroupBox.Controls.Add(SECUREBOOT);
+            MotherboardGroupBox.Controls.Add(lblSecureBoot);
+            MotherboardGroupBox.Controls.Add(BIOS);
+            MotherboardGroupBox.Controls.Add(lblBIOS);
+            MotherboardGroupBox.Controls.Add(MOTHERBOARD);
+            MotherboardGroupBox.Controls.Add(lblMotherboard);
+            MotherboardGroupBox.Controls.Add(VERSION);
+            MotherboardGroupBox.Controls.Add(lblVersion);
+            MotherboardGroupBox.Controls.Add(MOTHERBOARDMANUFACTURER);
+            MotherboardGroupBox.Controls.Add(lblMotherboardManufacturer);
+            MotherboardGroupBox.Controls.Add(SYSTEMMANUFACTURER);
+            MotherboardGroupBox.Controls.Add(lblSystemManufacturer);
+            MotherboardGroupBox.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            MotherboardGroupBox.Location = new Point(46, 305);
+            MotherboardGroupBox.Name = "MotherboardGroupBox";
+            MotherboardGroupBox.RightToLeft = RightToLeft.No;
+            MotherboardGroupBox.Size = new Size(479, 213);
+            MotherboardGroupBox.TabIndex = 17;
+            MotherboardGroupBox.TabStop = false;
+            MotherboardGroupBox.Text = "                                      Motherboard Information";
+            // 
+            // SECUREBOOT
+            // 
+            SECUREBOOT.AutoSize = true;
+            SECUREBOOT.Location = new Point(96, 180);
+            SECUREBOOT.Name = "SECUREBOOT";
+            SECUREBOOT.Size = new Size(0, 17);
+            SECUREBOOT.TabIndex = 13;
+            // 
+            // lblSecureBoot
+            // 
+            lblSecureBoot.AutoSize = true;
+            lblSecureBoot.Location = new Point(6, 180);
+            lblSecureBoot.Name = "lblSecureBoot";
+            lblSecureBoot.Size = new Size(90, 17);
+            lblSecureBoot.TabIndex = 12;
+            lblSecureBoot.Text = "Secure Boot:";
+            // 
+            // BIOS
+            // 
+            BIOS.AutoSize = true;
+            BIOS.Location = new Point(52, 152);
+            BIOS.Name = "BIOS";
+            BIOS.Size = new Size(0, 17);
+            BIOS.TabIndex = 9;
+            // 
+            // lblBIOS
+            // 
+            lblBIOS.AutoSize = true;
+            lblBIOS.Location = new Point(6, 152);
+            lblBIOS.Name = "lblBIOS";
+            lblBIOS.Size = new Size(42, 17);
+            lblBIOS.TabIndex = 8;
+            lblBIOS.Text = "BIOS:";
+            // 
+            // MOTHERBOARD
+            // 
+            MOTHERBOARD.AutoSize = true;
+            MOTHERBOARD.Location = new Point(100, 90);
+            MOTHERBOARD.Name = "MOTHERBOARD";
+            MOTHERBOARD.Size = new Size(0, 17);
+            MOTHERBOARD.TabIndex = 7;
+            // 
+            // lblMotherboard
+            // 
+            lblMotherboard.AutoSize = true;
+            lblMotherboard.Location = new Point(6, 90);
+            lblMotherboard.Name = "lblMotherboard";
+            lblMotherboard.Size = new Size(94, 17);
+            lblMotherboard.TabIndex = 6;
+            lblMotherboard.Text = "Motherboard:";
+            // 
+            // VERSION
+            // 
+            VERSION.AutoSize = true;
+            VERSION.Location = new Point(67, 121);
+            VERSION.Name = "VERSION";
+            VERSION.Size = new Size(0, 17);
+            VERSION.TabIndex = 5;
+            // 
+            // lblVersion
+            // 
+            lblVersion.AutoSize = true;
+            lblVersion.Location = new Point(6, 121);
+            lblVersion.Name = "lblVersion";
+            lblVersion.Size = new Size(60, 17);
+            lblVersion.TabIndex = 4;
+            lblVersion.Text = "Version:";
+            // 
+            // MOTHERBOARDMANUFACTURER
+            // 
+            MOTHERBOARDMANUFACTURER.AutoSize = true;
+            MOTHERBOARDMANUFACTURER.Location = new Point(187, 60);
+            MOTHERBOARDMANUFACTURER.Name = "MOTHERBOARDMANUFACTURER";
+            MOTHERBOARDMANUFACTURER.Size = new Size(0, 17);
+            MOTHERBOARDMANUFACTURER.TabIndex = 3;
+            // 
+            // lblMotherboardManufacturer
+            // 
+            lblMotherboardManufacturer.AutoSize = true;
+            lblMotherboardManufacturer.Location = new Point(6, 60);
+            lblMotherboardManufacturer.Name = "lblMotherboardManufacturer";
+            lblMotherboardManufacturer.Size = new Size(184, 17);
+            lblMotherboardManufacturer.TabIndex = 2;
+            lblMotherboardManufacturer.Text = "Motherboard Manufacturer:";
+            // 
+            // SYSTEMMANUFACTURER
+            // 
+            SYSTEMMANUFACTURER.AutoSize = true;
+            SYSTEMMANUFACTURER.Location = new Point(154, 29);
+            SYSTEMMANUFACTURER.Name = "SYSTEMMANUFACTURER";
+            SYSTEMMANUFACTURER.Size = new Size(0, 17);
+            SYSTEMMANUFACTURER.TabIndex = 1;
+            // 
+            // lblSystemManufacturer
+            // 
+            lblSystemManufacturer.AutoSize = true;
+            lblSystemManufacturer.Location = new Point(6, 29);
+            lblSystemManufacturer.Name = "lblSystemManufacturer";
+            lblSystemManufacturer.Size = new Size(148, 17);
+            lblSystemManufacturer.TabIndex = 0;
+            lblSystemManufacturer.Text = "System Manufacturer:";
+            // 
+            // groupBox1
+            // 
+            groupBox1.BackColor = Color.LightCoral;
+            groupBox1.BackgroundImageLayout = ImageLayout.None;
+            groupBox1.Controls.Add(MEMORYVOLTAGE);
+            groupBox1.Controls.Add(lblMemoryVoltage);
+            groupBox1.Controls.Add(XMPENABLED);
+            groupBox1.Controls.Add(lblXMPEnabled);
+            groupBox1.Controls.Add(MEMORYGENERATION);
+            groupBox1.Controls.Add(lblMemoryGeneration);
+            groupBox1.Controls.Add(MEMORYUSAGE);
+            groupBox1.Controls.Add(lblMemoryUsage);
+            groupBox1.Controls.Add(DIMMLOCATION);
+            groupBox1.Controls.Add(lblMemoryTemperature);
+            groupBox1.Controls.Add(MEMORYFREQUENCY);
+            groupBox1.Controls.Add(lblMemoryFrequency);
+            groupBox1.Controls.Add(MEMORYCAPACITY);
+            groupBox1.Controls.Add(lblCapacity);
+            groupBox1.Controls.Add(MEMORYMODEL);
+            groupBox1.Controls.Add(lblMemoryModel);
+            groupBox1.Font = new Font("Franklin Gothic Medium", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(712, 20);
+            groupBox1.Name = "groupBox1";
+            groupBox1.RightToLeft = RightToLeft.No;
+            groupBox1.Size = new Size(479, 269);
+            groupBox1.TabIndex = 16;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "                                        Memory Information";
+            // 
+            // MEMORYVOLTAGE
+            // 
+            MEMORYVOLTAGE.AutoSize = true;
+            MEMORYVOLTAGE.Location = new Point(63, 241);
+            MEMORYVOLTAGE.Name = "MEMORYVOLTAGE";
+            MEMORYVOLTAGE.Size = new Size(0, 17);
+            MEMORYVOLTAGE.TabIndex = 15;
+            // 
+            // lblMemoryVoltage
+            // 
+            lblMemoryVoltage.AutoSize = true;
+            lblMemoryVoltage.Location = new Point(6, 241);
+            lblMemoryVoltage.Name = "lblMemoryVoltage";
+            lblMemoryVoltage.Size = new Size(61, 17);
+            lblMemoryVoltage.TabIndex = 14;
+            lblMemoryVoltage.Text = "Voltage:";
+            // 
+            // XMPENABLED
+            // 
+            XMPENABLED.AutoSize = true;
+            XMPENABLED.Location = new Point(52, 212);
+            XMPENABLED.Name = "XMPENABLED";
+            XMPENABLED.Size = new Size(0, 17);
+            XMPENABLED.TabIndex = 13;
+            // 
+            // lblXMPEnabled
+            // 
+            lblXMPEnabled.AutoSize = true;
+            lblXMPEnabled.Location = new Point(6, 212);
+            lblXMPEnabled.Name = "lblXMPEnabled";
+            lblXMPEnabled.Size = new Size(40, 17);
+            lblXMPEnabled.TabIndex = 12;
+            lblXMPEnabled.Text = "XMP:";
+            // 
+            // MEMORYGENERATION
+            // 
+            MEMORYGENERATION.AutoSize = true;
+            MEMORYGENERATION.Location = new Point(95, 183);
+            MEMORYGENERATION.Name = "MEMORYGENERATION";
+            MEMORYGENERATION.Size = new Size(0, 17);
+            MEMORYGENERATION.TabIndex = 11;
+            // 
+            // lblMemoryGeneration
+            // 
+            lblMemoryGeneration.AutoSize = true;
+            lblMemoryGeneration.Location = new Point(6, 183);
+            lblMemoryGeneration.Name = "lblMemoryGeneration";
+            lblMemoryGeneration.Size = new Size(83, 17);
+            lblMemoryGeneration.TabIndex = 10;
+            lblMemoryGeneration.Text = "Generation:";
+            // 
+            // MEMORYUSAGE
+            // 
+            MEMORYUSAGE.AutoSize = true;
+            MEMORYUSAGE.Location = new Point(58, 152);
+            MEMORYUSAGE.Name = "MEMORYUSAGE";
+            MEMORYUSAGE.Size = new Size(0, 17);
+            MEMORYUSAGE.TabIndex = 9;
+            // 
+            // lblMemoryUsage
+            // 
+            lblMemoryUsage.AutoSize = true;
+            lblMemoryUsage.Location = new Point(7, 152);
+            lblMemoryUsage.Name = "lblMemoryUsage";
+            lblMemoryUsage.Size = new Size(52, 17);
+            lblMemoryUsage.TabIndex = 8;
+            lblMemoryUsage.Text = "Usage:";
+            // 
+            // DIMMLOCATION
+            // 
+            DIMMLOCATION.AutoSize = true;
+            DIMMLOCATION.Location = new Point(115, 90);
+            DIMMLOCATION.Name = "DIMMLOCATION";
+            DIMMLOCATION.Size = new Size(0, 17);
+            DIMMLOCATION.TabIndex = 7;
+            // 
+            // lblMemoryTemperature
+            // 
+            lblMemoryTemperature.AutoSize = true;
+            lblMemoryTemperature.Location = new Point(7, 90);
+            lblMemoryTemperature.Name = "lblMemoryTemperature";
+            lblMemoryTemperature.Size = new Size(107, 17);
+            lblMemoryTemperature.TabIndex = 6;
+            lblMemoryTemperature.Text = "DIMM Location:";
+            // 
+            // MEMORYFREQUENCY
+            // 
+            MEMORYFREQUENCY.AutoSize = true;
+            MEMORYFREQUENCY.Location = new Point(85, 121);
+            MEMORYFREQUENCY.Name = "MEMORYFREQUENCY";
+            MEMORYFREQUENCY.Size = new Size(0, 17);
+            MEMORYFREQUENCY.TabIndex = 5;
+            // 
+            // lblMemoryFrequency
+            // 
+            lblMemoryFrequency.AutoSize = true;
+            lblMemoryFrequency.Location = new Point(6, 121);
+            lblMemoryFrequency.Name = "lblMemoryFrequency";
+            lblMemoryFrequency.Size = new Size(78, 17);
+            lblMemoryFrequency.TabIndex = 4;
+            lblMemoryFrequency.Text = "Frequency:";
+            // 
+            // MEMORYCAPACITY
+            // 
+            MEMORYCAPACITY.AutoSize = true;
+            MEMORYCAPACITY.Location = new Point(67, 59);
+            MEMORYCAPACITY.Name = "MEMORYCAPACITY";
+            MEMORYCAPACITY.Size = new Size(0, 17);
+            MEMORYCAPACITY.TabIndex = 3;
+            // 
+            // lblCapacity
+            // 
+            lblCapacity.AutoSize = true;
+            lblCapacity.Location = new Point(6, 59);
+            lblCapacity.Name = "lblCapacity";
+            lblCapacity.Size = new Size(67, 17);
+            lblCapacity.TabIndex = 2;
+            lblCapacity.Text = "Capacity:";
+            // 
+            // MEMORYMODEL
+            // 
+            MEMORYMODEL.AutoSize = true;
+            MEMORYMODEL.Location = new Point(64, 28);
+            MEMORYMODEL.Name = "MEMORYMODEL";
+            MEMORYMODEL.Size = new Size(0, 17);
+            MEMORYMODEL.TabIndex = 1;
+            // 
+            // lblMemoryModel
+            // 
+            lblMemoryModel.AutoSize = true;
+            lblMemoryModel.Location = new Point(7, 28);
+            lblMemoryModel.Name = "lblMemoryModel";
+            lblMemoryModel.Size = new Size(51, 17);
+            lblMemoryModel.TabIndex = 0;
+            lblMemoryModel.Text = "Model:";
+            // 
             // gbGPUInfo
             // 
-            gbGPUInfo.BackColor = Color.Gainsboro;
+            gbGPUInfo.BackColor = Color.LightCoral;
             gbGPUInfo.BackgroundImageLayout = ImageLayout.None;
             gbGPUInfo.Controls.Add(GPUVOLTAGE);
             gbGPUInfo.Controls.Add(lblGpuVoltage);
@@ -124,7 +621,7 @@
             gbGPUInfo.Size = new Size(306, 269);
             gbGPUInfo.TabIndex = 14;
             gbGPUInfo.TabStop = false;
-            gbGPUInfo.Text = "      GPU Information";
+            gbGPUInfo.Text = "                    GPU Information";
             // 
             // GPUVOLTAGE
             // 
@@ -264,7 +761,7 @@
             // 
             // groupCPU
             // 
-            groupCPU.BackColor = Color.Gainsboro;
+            groupCPU.BackColor = Color.LightCoral;
             groupCPU.BackgroundImageLayout = ImageLayout.None;
             groupCPU.Controls.Add(CPUVOLTAGE);
             groupCPU.Controls.Add(WATTAGE);
@@ -289,7 +786,7 @@
             groupCPU.Size = new Size(239, 269);
             groupCPU.TabIndex = 0;
             groupCPU.TabStop = false;
-            groupCPU.Text = "      CPU Information";
+            groupCPU.Text = "             CPU Information";
             // 
             // CPUVOLTAGE
             // 
@@ -437,6 +934,40 @@
             tpOptimize.Text = "Optimize";
             tpOptimize.UseVisualStyleBackColor = true;
             // 
+            // SENT
+            // 
+            SENT.AutoSize = true;
+            SENT.Location = new Point(47, 237);
+            SENT.Name = "SENT";
+            SENT.Size = new Size(0, 17);
+            SENT.TabIndex = 19;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(6, 237);
+            label3.Name = "label3";
+            label3.Size = new Size(41, 17);
+            label3.TabIndex = 18;
+            label3.Text = "Sent:";
+            // 
+            // RECEIVED
+            // 
+            RECEIVED.AutoSize = true;
+            RECEIVED.Location = new Point(77, 270);
+            RECEIVED.Name = "RECEIVED";
+            RECEIVED.Size = new Size(0, 17);
+            RECEIVED.TabIndex = 21;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(6, 270);
+            label5.Name = "label5";
+            label5.Size = new Size(71, 17);
+            label5.TabIndex = 20;
+            label5.Text = "Recieved:";
+            // 
             // frohbergcomputersForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -448,6 +979,12 @@
             Load += Form1_Load;
             systemInfo.ResumeLayout(false);
             tpSystemInfo.ResumeLayout(false);
+            networkGroupBox.ResumeLayout(false);
+            networkGroupBox.PerformLayout();
+            MotherboardGroupBox.ResumeLayout(false);
+            MotherboardGroupBox.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             gbGPUInfo.ResumeLayout(false);
             gbGPUInfo.PerformLayout();
             groupCPU.ResumeLayout(false);
@@ -494,5 +1031,54 @@
         private Label lblGpuVoltage;
         private Label CPUVOLTAGE;
         private Label lblCpuVoltage;
+        private GroupBox groupBox1;
+        private Label MEMORYVOLTAGE;
+        private Label lblMemoryVoltage;
+        private Label XMPENABLED;
+        private Label lblXMPEnabled;
+        private Label MEMORYGENERATION;
+        private Label lblMemoryGeneration;
+        private Label MEMORYUSAGE;
+        private Label lblMemoryUsage;
+        private Label DIMMLOCATION;
+        private Label lblMemoryTemperature;
+        private Label MEMORYFREQUENCY;
+        private Label lblMemoryFrequency;
+        private Label MEMORYCAPACITY;
+        private Label lblCapacity;
+        private Label MEMORYMODEL;
+        private Label lblMemoryModel;
+        private GroupBox MotherboardGroupBox;
+        private Label SECUREBOOT;
+        private Label lblSecureBoot;
+        private Label BIOS;
+        private Label lblBIOS;
+        private Label MOTHERBOARD;
+        private Label lblMotherboard;
+        private Label VERSION;
+        private Label lblVersion;
+        private Label MOTHERBOARDMANUFACTURER;
+        private Label lblMotherboardManufacturer;
+        private Label SYSTEMMANUFACTURER;
+        private Label lblSystemManufacturer;
+        private GroupBox networkGroupBox;
+        private Label DNS;
+        private Label label2;
+        private Label DEFAULTGATEWAY;
+        private Label lblDefaultGateway;
+        private Label IPADDRESS;
+        private Label lblIPAddress;
+        private Label SUBNETMASK;
+        private Label lblSubnetMask;
+        private Label MACADDRESS;
+        private Label lblMACAddress;
+        private Label NETWORKADAPTER;
+        private Label lblNetworkAdapter;
+        private Label DHCP;
+        private Label lblDHCP;
+        private Label RECEIVED;
+        private Label label5;
+        private Label SENT;
+        private Label label3;
     }
 }

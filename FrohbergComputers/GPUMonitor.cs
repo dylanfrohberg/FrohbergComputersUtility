@@ -89,8 +89,6 @@ public class GPUMonitor
         try
         {
             string voltageOutput = ExecuteNvidiaSmiQuery("-q -d VOLTAGE");
-            Debug.WriteLine($"Voltage Output: {voltageOutput}");
-
             if (string.IsNullOrEmpty(voltageOutput))
             {
                 SetLabelText(_gpuVoltageLabel, "N/A");
@@ -103,8 +101,6 @@ public class GPUMonitor
             if (voltageLine != null)
             {
                 string voltageValueString = voltageLine.Split(':').Last().Trim();
-                Debug.WriteLine($"Voltage Line: {voltageValueString}");
-
                 if (decimal.TryParse(voltageValueString.Replace("mV", "").Trim(), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal voltageValue))
                 {
                     SetLabelText(_gpuVoltageLabel, $"{Math.Round(voltageValue / 1000.0m, 3)} V");
@@ -125,7 +121,7 @@ public class GPUMonitor
             Debug.WriteLine($"Exception: {ex.Message}");
         }
     }
-
+    //Powershell
     private string GetGpuDriverDate()
     {
         try
@@ -145,8 +141,6 @@ public class GPUMonitor
             process.Start();
             string output = process.StandardOutput.ReadToEnd().Trim();
             process.WaitForExit();
-
-            Debug.WriteLine($"Raw Driver Date Output: {output}");
 
             if (!string.IsNullOrEmpty(output))
             {

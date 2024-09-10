@@ -2,7 +2,6 @@ namespace FrohbergComputers
 {
     using System;
     using System.Diagnostics;
-    using System.Linq;
     using System.Threading.Tasks;
     using System.Windows.Forms;
     using LibreHardwareMonitor.Hardware;
@@ -12,21 +11,24 @@ namespace FrohbergComputers
         private Timer timer;
         private GPUMonitor gpuMonitor;
         private CPUMonitor cpuMonitor;
-
-        // Declare missing variables
-        private Computer computer;
+        private MemoryMonitor memoryMonitor;
+        private MotherboardMonitor motherboardMonitor;
+        public Computer computer;
         private PerformanceCounter cpuUsageCounter;
-
+        private NetworkMonitor networkMonitor;
         public frohbergcomputersForm()
         {
             InitializeComponent();
             InitializeHardware();
             InitializePerformanceCounters();
+            
 
             // Initialize GPUMonitor and CPUMonitor with form and labels
             gpuMonitor = new GPUMonitor(this, GPUMODEL, GPUMEMORY, GPUTEMPERATURE, GPUCLOCKSPEED, GPUPOWER, GPUUSAGE, GPUDRIVERDATE, GPUVOLTAGE);
             cpuMonitor = new CPUMonitor(this, CPUModel, CORECOUNT, BASECLOCK, CPUTEMP, CPUUSAGE, WATTAGE, PROCESSCOUNT, CPUVOLTAGE); // Ensure these labels are correctly assigned
-
+            memoryMonitor = new MemoryMonitor(MEMORYMODEL, MEMORYCAPACITY, DIMMLOCATION, MEMORYFREQUENCY, MEMORYUSAGE, MEMORYGENERATION, XMPENABLED, MEMORYVOLTAGE);
+            motherboardMonitor = new MotherboardMonitor(SYSTEMMANUFACTURER, MOTHERBOARDMANUFACTURER, MOTHERBOARD, VERSION, BIOS, SECUREBOOT);
+            networkMonitor = new NetworkMonitor(NETWORKADAPTER, MACADDRESS, IPADDRESS, SUBNETMASK, DEFAULTGATEWAY, DNS, DHCP, SENT, RECEIVED);
             CPUUSAGE.Text = "Loading...";
             GPUUSAGE.Text = "Loading...";
 
@@ -36,15 +38,17 @@ namespace FrohbergComputers
             };
             timer.Tick += Timer_Tick; // Subscribe to the Tick event
             timer.Start(); // Start the timer
+            networkMonitor.StartMonitoring();
         }
-
-        private void InitializeHardware()
+        public void InitializeHardware()
         {
             computer = new Computer
             {
                 IsCpuEnabled = true,
                 IsGpuEnabled = true,
-                IsMotherboardEnabled = true
+                IsMotherboardEnabled = true,
+                IsMemoryEnabled = true,
+                IsNetworkEnabled = true,
             };
             computer.Open();
         }
@@ -70,8 +74,12 @@ namespace FrohbergComputers
 
             // Ensure the GPU voltage is updated every tick
             gpuMonitor.UpdateGPUVoltage();
+            memoryMonitor.UpdateMemoryInfo();
+            motherboardMonitor.UpdateMotherboardInfo();
+            networkMonitor.UpdateNetworkTraffic();
+            
         }
-
+        //Load all methods 
         private void Form1_Load(object sender, EventArgs e)
         {
             cpuMonitor.GetCPUModel();
@@ -83,5 +91,6 @@ namespace FrohbergComputers
             cpuMonitor.GetCoreCount();
             cpuMonitor.UpdateCPUVoltage();
         }
+
     }
 }

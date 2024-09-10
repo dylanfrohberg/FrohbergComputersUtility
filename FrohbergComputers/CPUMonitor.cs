@@ -313,7 +313,7 @@
                 SetLabelText(_baseClockLabel, $"Error: {ex.Message}");
             }
         }
-
+        //Powershell
         private string ExecutePowerShellCommand(string command)
         {
             ProcessStartInfo startInfo = new ProcessStartInfo
