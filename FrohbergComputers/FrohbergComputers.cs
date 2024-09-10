@@ -71,7 +71,7 @@ namespace FrohbergComputers
             // Ensure the GPU voltage is updated every tick
             gpuMonitor.UpdateGPUVoltage();
         }
-
+        //Load all methods 
         private void Form1_Load(object sender, EventArgs e)
         {
             cpuMonitor.GetCPUModel();

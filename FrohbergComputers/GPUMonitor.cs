@@ -125,7 +125,7 @@ public class GPUMonitor
             Debug.WriteLine($"Exception: {ex.Message}");
         }
     }
-
+    //Powershell
     private string GetGpuDriverDate()
     {
         try
